@@ -1,9 +1,7 @@
-import Person from "./Person";
-
-let People = [] as Person[]
+import { Person } from "./Person";
 
 
-export function getAverageAge() {
+export function getAverageAge(People: Person[]) {
     let sum = 0
     let count = 0;
     for (let i = 0; i < People.length; i++) {
@@ -12,7 +10,7 @@ export function getAverageAge() {
     }
     return (sum/count)
 }
-export function getNumberOfStudents() {
+export function getNumberOfStudents(People: Person[]) {
     let students = 0;
     for (let i = 0; i < People.length; i++) {
         if (People[i].isStudent == true) {
@@ -21,7 +19,7 @@ export function getNumberOfStudents() {
     }
     return students
 }
-export function getPersonWithHighestScore() {
+export function getPersonWithHighestScore(People: Person[]) {
     let max = 0;
     let highest;
     for (let i = 0; i < People.length; i++) {
@@ -32,8 +30,8 @@ export function getPersonWithHighestScore() {
     }
     return highest
 }
-export function getAverageScoreOfStudents() {
-    let students = getNumberOfStudents();
+export function getAverageScoreOfStudents(People: Person[]) {
+    let students = getNumberOfStudents(People);
     let studentScore = 0;
     for (let i = 0; i < People.length; i++) {
         if (People[i].isStudent == true) {
@@ -42,7 +40,7 @@ export function getAverageScoreOfStudents() {
     }
     return studentScore/students
 }
-export function getOldestStudent() {
+export function getOldestStudent(People: Person[]) {
     let max = 0;
     let oldest;
     for (let i = 0; i < People.length; i++) {
@@ -55,11 +53,12 @@ export function getOldestStudent() {
     }
     return oldest
 }
-export function isAnyoneFailing() {
+export function isAnyoneFailing(People: Person[]) {
     let failing = false;
     for (let i = 0; i < People.length; i++) {
         if (People[i].score < 40) {
             failing = true
         }
     }
+    return failing
 }
